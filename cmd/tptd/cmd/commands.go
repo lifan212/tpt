@@ -74,8 +74,8 @@ func initRootCmd(
 	)
 
 	server.AddCommands(rootCmd, app.DefaultNodeHome, newApp, appExport, addModuleInitFlags)
-	// var defaultNodeHome string
-	// gentxModule := basicManager[typesgen.ModuleName].(genutil.AppModuleBasic)
+	var defaultNodeHome string
+	gentxModule := basicManager[typesgen.ModuleName].(genutil.AppModuleBasic)
 
 
 	// add keybase, auxiliary RPC, query, genesis, and tx child commands
@@ -88,7 +88,7 @@ func initRootCmd(
 
 		ValidateGenesisCmd(basicManager),
 		AddGenesisAccountCmd(txConfig.SigningContext().AddressCodec()),
-		// GenTxCmd(basicManager, txConfig, banktypes.GenesisBalancesIterator{}, defaultNodeHome, txConfig.SigningContext().ValidatorAddressCodec()),
+		GenTxCmd(basicManager, txConfig, banktypes.GenesisBalancesIterator{}, defaultNodeHome, txConfig.SigningContext().ValidatorAddressCodec()),
 		// CollectGenTxsCmd(banktypes.GenesisBalancesIterator{}, defaultNodeHome, gentxModule.GenTxValidator, txConfig.SigningContext().ValidatorAddressCodec()),
 	)
 }
