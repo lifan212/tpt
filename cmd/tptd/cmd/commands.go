@@ -75,7 +75,7 @@ func initRootCmd(
 
 	server.AddCommands(rootCmd, app.DefaultNodeHome, newApp, appExport, addModuleInitFlags)
 	var defaultNodeHome string
-	// gentxModule := basicManager[typesgen.ModuleName].(genutil.AppModuleBasic)
+	gentxModule := basicManager[typesgen.ModuleName].(genutil.AppModuleBasic)
 
 
 	// add keybase, auxiliary RPC, query, genesis, and tx child commands
